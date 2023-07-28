@@ -5,7 +5,10 @@ import { ConsumerService } from "./Consumer.service";
 export class TestConsumer implements OnModuleInit {
     constructor(private readonly consumerService: ConsumerService) { }
 
-    async onModuleInit() {
+    async onModuleInit() { 
+
+        // Consume Data with Spcific topic
+
         await this.consumerService.consume(
             { topics: ['test'] },
             {

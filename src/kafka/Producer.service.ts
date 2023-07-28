@@ -3,9 +3,8 @@ import { Kafka, Producer, ProducerRecord } from "kafkajs";
 
 @Injectable()
 export class ProucerService implements OnModuleInit, OnApplicationShutdown {
-    onApplicationShutdown(signal?: string) {
-        throw new Error("Method not implemented.");
-    }
+
+    // Connect to Kafka Server
     private readonly kafka = new Kafka({
         brokers: ['localhost:9092']
     });
@@ -14,15 +13,18 @@ export class ProucerService implements OnModuleInit, OnApplicationShutdown {
 
 
     async onModuleInit() {
+        // Connect Producer on Module initialization
         await this.producer.connect();
     }
 
     async produce(record: ProducerRecord) {
+        //Send Records to Kafka to producer
         this.producer.send(record);
 
     }
 
-    async OnApplicationShutdown() {
+    async onApplicationShutdown() {
+        //Disconnect producer on Application ShutDown
         await this.producer.disconnect();
     }
 
