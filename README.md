@@ -1,7 +1,9 @@
+![Alt text](image.png)
+
 
 
 <p align="center">
-  ![Alt text](image.png)
+![Alt text](image.png)
 </p>
 
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
